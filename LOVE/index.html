@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Letter Envelopes</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Happy Monthsary My Love</h1> <!-- Header -->
+
+<div class="container">
+  <div class="envelope" onclick="openEnvelope(event, 1)">
+    <div class="top-flap"></div>
+    <div class="bottom-flap"></div>
+    <div class="heart">❤️</div>
+  </div>
+
+  <div class="letter-content" id="letter-content-1">
+    <div class="content">
+      <h1>My Dearest,</h1>
+      <p>
+        Happy monthsary to my beloved person, and I hope that in the trials that we will go through, both of us will just go through it and not understand it, but let's not forget the responsibility in life, even if we are not rich, as long as we are rich in the love of the two of us, even if the time is fast and even if we grow old quickly, my love for you will never change. Even if the situation is difficult, don't worry I'm always here by your side supporting you. I love you forever, Felicity Raven Thomas.
+      </p>
+      <p>
+        I am endlessly grateful for the memories we’ve shared and the dreams we are building together. 
+        Here's to us, always and forever.
+      </p>
+      <p>With all my love,</p>
+      <p><strong>Your Forever Partner ❤️</strong></p>
+    </div>
+  </div>
+
+  <div class="envelope" onclick="openEnvelope(event, 2)">
+    <div class="top-flap"></div>
+    <div class="bottom-flap"></div>
+    <div class="heart">❤️</div>
+  </div>
+
+  <div class="letter-content" id="letter-content-2">
+    <div class="content">
+      <h1>To My Love,</h1>
+      <p>
+        A lot of happy things happened to us and a lot of sad things, but we still love each other. Sorry for being a prideful person, just kiss me. I'm okay, ayiiiieeee. One day I will help you when I have a job, I will help you achieve your dreams and our dreams. That's all, my love. Happy relationship for both of us. I LOVE YOU SO MUCHHHHHHH.
+      </p>
+      <p>
+        I feel incredibly lucky to walk through life by your side, sharing laughter, dreams, and everything in between.
+      </p>
+      <p>Forever yours,</p>
+      <p><strong>Always and Forever ❤️</strong></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openEnvelope(event, envelopeNumber) {
+    const envelope = event.target.closest('.envelope');
+    const letterContent = document.getElementById(`letter-content-${envelopeNumber}`);
+    const heart = envelope.querySelector('.heart');
+
+    const allEnvelopes = document.querySelectorAll('.envelope');
+    const allLetters = document.querySelectorAll('.letter-content');
+    const allHearts = document.querySelectorAll('.heart');
+
+    allEnvelopes.forEach((env, index) => {
+      if (env !== envelope) {
+        env.classList.remove('open');
+        allLetters[index].classList.remove('visible');
+        allHearts[index].style.display = 'block';
+      }
+    });
+
+    envelope.classList.toggle('open');
+    letterContent.classList.toggle('visible');
+    
+    if (envelope.classList.contains('open')) {
+      heart.style.display = 'none';
+    } else {
+      heart.style.display = 'block';
+    }
+  }
+</script>
+
+</body>
+</html>
